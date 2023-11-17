@@ -1,3 +1,12 @@
+import { Coffees } from "./components/Coffees";
+import { MainHome } from "./components/MainHome";
+
 export function Home(){
-    return <h1>Home</h1>
+    return(
+        <>
+            <MainHome />
+            <Coffees />
+        </>
+
+    )
 }

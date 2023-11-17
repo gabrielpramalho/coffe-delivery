@@ -12,7 +12,4 @@ export const LayoutContainer = styled.div`
         max-width: 60rem;
     }
 
-    @media (max-width: 576px){
-        max-width: 33.75rem;
-    }
 `
