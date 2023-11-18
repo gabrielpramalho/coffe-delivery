@@ -10,6 +10,13 @@ export const HomeContainer = styled.main`
     place-items: center;
 
     padding-top: 5.875rem;
+    padding-bottom: 6.625rem;
+
+    @media(max-width: 988px){
+        display: flex!important;
+        flex-direction: column;
+        padding: 0 2rem;
+    }
 `
 
 export const TitleContainer = styled.div`

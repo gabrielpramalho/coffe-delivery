@@ -1,0 +1,152 @@
+[
+    {
+        "id": "1",
+        "name": "Expresso Tradicional",
+        "urlImage": "src/assets/expresso.svg",
+        "tags": [
+            "Tradicional"
+        ],
+        "description": "O tradicional café feito com água quente e grãos moídos",
+        "price": 3.90
+    },
+    {
+        "id": "2",
+        "name": "Expresso Americano",
+        "urlImage": "src/assets/americano.svg",
+        "tags": [
+            "Tradicional"
+        ],
+        "description": "Expresso diluído, menos intenso que o tradicional",
+        "price": 4.50
+    },
+    {
+        "id": "3",
+        "name": "Expresso Cremoso",
+        "urlImage": "src/assets/expresso-cremoso.svg",
+        "tags": [
+            "Tradicional"
+        ],
+        "description": "Café expresso tradicional com espuma cremosa",
+        "price": 4.90    
+    },
+    {
+        "id": "4",
+        "name": "Expresso Gelado",
+        "urlImage": "src/assets/cafe-gelado.svg",
+        "tags": [
+            "Tradicional",
+            "Gelado"
+        ],
+        "description": "Bebida preparada com café expresso e cubos de gelo",
+        "price": 2.90
+    },
+    {
+        "id": "5",
+        "name": "Café com Leite",
+        "urlImage": "src/assets/cafe-com-leite.svg",
+        "tags": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "description": "Meio a meio de expresso tradicional com leite vaporizado",
+        "price": 4.90
+    },
+    {
+        "id": "6",
+        "name": "Latte",
+        "urlImage": "src/assets/latte.svg",
+        "tags": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "description": "Uma dose de café expresso com o dobro de leite e espuma cremosa",
+        "price": 5.90
+    },
+    {
+        "id": "7",
+        "name": "Capuccino",
+        "urlImage": "src/assets/capuccino.svg",
+        "tags": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "description": "Bebida com canela feita de doses iguais de café, leite e espuma",
+        "price": 9.90
+    },
+    {
+        "id": "8",
+        "name": "Macchiato",
+        "urlImage": "src/assets/macchiato.svg",
+        "tags": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "description": "",
+        "price": 11.90
+    },
+    {
+        "id": "9",
+        "name": "Mocaccino",
+        "urlImage": "src/assets/mochaccino.svg",
+        "tags": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "description": "Café expresso com calda de chocolate, pouco leite e espuma",
+        "price": 12.90
+    },
+    {
+        "id": "10",
+        "name": "Chocolate Quente",
+        "urlImage": "src/assets/chocolate-quente.svg",
+        "tags": [
+            "Tradicional",
+            "Com leite"
+        ],
+        "description": "Bebida feita com chocolate dissolvido no leite quente e café",
+        "price": 9.90
+    },
+    {
+        "id": "11",
+        "name": "Cubano",
+        "urlImage": "src/assets/cubano.svg",
+        "tags": [
+            "Especial",
+            "Alcoólico",
+            "Gelado"
+        ],
+        "description": "Drink gelado de café expresso com rum, creme de leite e hortelã",
+        "price": 14.90
+    },
+    {
+        "id": "12",
+        "name": "Havaiano",
+        "urlImage": "src/assets/havaiano.svg",
+        "tags": [
+            "Especial"
+        ],
+        "description": "Bebida adocicada preparada com café e leite de coco",
+        "price": 11.90
+    },
+    {
+        "id": "13",
+        "name": "Árabe",
+        "urlImage": "src/assets/arabe.svg",
+        "tags": [
+            "Especial"
+        ],
+        "description": "Bebida preparada com grãos de café árabe e especiarias",
+        "price": 9.90
+    },
+    {
+        "id": "14",
+        "name": "Irlandês",
+        "urlImage": "src/assets/irlandes.svg",
+        "tags": [
+            "Especial",
+            "Alcoólico"
+        ],
+        "description": "Bebida a base de café, uísque irlandês, açúcar e chantilly",
+        "price": 16.90
+    }
+]
