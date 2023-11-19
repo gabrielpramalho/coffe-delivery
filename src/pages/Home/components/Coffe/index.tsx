@@ -1,5 +1,6 @@
 import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
 import { CoffeInformation, CoffeeCard, Tags, ContainerPrice, ButtonsActions, ButtonBuy } from "./styles";
+import { useState } from "react";
 
 interface CoffeType{
     id: string;
@@ -16,7 +17,35 @@ interface CoffeProps{
 
 export function Coffe({coffe}:CoffeProps){
 
-    //TODO - deixar duas casa
+    const [quantity, setQuantity] = useState(1)
+
+    function handleIncreaseQuantity(){
+        setQuantity(
+            state => state + 1
+        )
+    }
+
+    function handleDecreaseQuantity(){
+        setQuantity(
+            state => {
+                if(state==1){
+                    return state
+                }else{
+                    return state - 1
+                }
+            }
+        )
+    }
+
+    function handleAddCart(){
+        const newCoffe = {
+            coffe: coffe,
+            amount: quantity
+        }
+
+        console.log(newCoffe)
+    }
+
     const priceString = String(coffe.price.toFixed(2)).replace('.',',')
 
     return(
@@ -39,12 +68,16 @@ export function Coffe({coffe}:CoffeProps){
                     <strong>{priceString}</strong>
                 </ContainerPrice>
                 <ButtonsActions>
-                    <button type="button"><Minus size={14} weight="bold"/></button>
-                    <input  value={1} readOnly />
-                    <button type="button"><Plus size={14} weight="bold" /></button>
+                    <button type="button" onClick={handleDecreaseQuantity}>
+                        <Minus size={14} weight="bold"/>
+                    </button>
+                    <input  value={quantity} readOnly />
+                    <button type="button" onClick={handleIncreaseQuantity}>
+                        <Plus size={14} weight="bold" />
+                        </button>
                 </ButtonsActions>
                 
-                <ButtonBuy>
+                <ButtonBuy onClick={handleAddCart}>
                     <ShoppingCartSimple size={22} weight="fill" />
                 </ButtonBuy>
             </footer>

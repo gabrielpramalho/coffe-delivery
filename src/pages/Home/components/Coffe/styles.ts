@@ -128,10 +128,14 @@ export const ButtonsActions = styled.div`
         &:focus{
             box-shadow: none;
         }
+
+        &:hover{
+            color: ${props => props.theme["purple-700"]};
+        }
     }
 
     input{
-        width: 1.25rem;
+        width: 1.35rem;
         border: 0;
         text-align: center;
         line-height: 1.3;
@@ -159,7 +163,13 @@ export const ButtonBuy = styled.button`
     justify-content: center;
     align-items: center;
 
+    cursor: pointer;
+
     padding: 0.35rem;
     border-radius: 6px;
+
+    &:hover{
+        background-color: ${props => props.theme["purple-500"]};
+    }
 
 `
