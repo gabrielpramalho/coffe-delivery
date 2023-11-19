@@ -1,18 +1,19 @@
 import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 import logo from '../../assets/Logo.svg'
 import { HeaderButtonContainer, HeaderContainer } from './styles'
+import { Link } from 'react-router-dom'
 
 export function Header(){
 
-    const quatityItemsCart = 0
+    const quantityItemsCart = 0
 
-    const hasItemCart = quatityItemsCart > 0
+    const hasItemCart = quantityItemsCart > 0
 
     return(
         <HeaderContainer>
-            <a href="/">
+            <Link to="/">
                 <img src={logo} alt="" />
-            </a>
+            </Link>
 
             <HeaderButtonContainer>
                 <div className='city'>
@@ -20,10 +21,10 @@ export function Header(){
                     <span>Bandeirantes, PR</span>
                 </div>
 
-                <div className='cart'>
-                    {hasItemCart && <span>{quatityItemsCart}</span> }
+                <Link to="/checkout" className='cart'>
+                    {hasItemCart && <span>{quantityItemsCart}</span> }
                     <ShoppingCart size={22} weight='fill' />
-                </div>
+                </Link>
             </HeaderButtonContainer>
         </HeaderContainer>
     )
