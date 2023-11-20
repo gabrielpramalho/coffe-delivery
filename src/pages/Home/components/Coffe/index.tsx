@@ -1,14 +1,16 @@
 import { Minus, Plus, ShoppingCartSimple } from "@phosphor-icons/react";
 import { CoffeInformation, CoffeeCard, Tags, ContainerPrice, ButtonsActions, ButtonBuy } from "./styles";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { CartContext } from "@/contexts/CartContext";
 
-interface CoffeType{
+export interface CoffeType{
     id: string;
     name: string;
     urlImage: string;
     tags: string[];
     description: string;
     price: number;
+    amount?: number
 }
 
 interface CoffeProps{
@@ -16,6 +18,8 @@ interface CoffeProps{
 }
 
 export function Coffe({coffe}:CoffeProps){
+
+    const {createNewItem} = useContext(CartContext)
 
     const [quantity, setQuantity] = useState(1)
 
@@ -39,11 +43,11 @@ export function Coffe({coffe}:CoffeProps){
 
     function handleAddCart(){
         const newCoffe = {
-            coffe: coffe,
+            ...coffe,
             amount: quantity
         }
 
-        console.log(newCoffe)
+        createNewItem(newCoffe)
     }
 
     const priceString = String(coffe.price.toFixed(2)).replace('.',',')

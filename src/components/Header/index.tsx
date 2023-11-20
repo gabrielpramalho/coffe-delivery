@@ -2,10 +2,14 @@ import { MapPin, ShoppingCart } from '@phosphor-icons/react'
 import logo from '../../assets/Logo.svg'
 import { HeaderButtonContainer, HeaderContainer } from './styles'
 import { Link } from 'react-router-dom'
+import { CartContext } from '@/contexts/CartContext'
+import { useContext } from 'react'
 
 export function Header(){
 
-    const quantityItemsCart = 0
+    const { amountItems } = useContext(CartContext)
+
+    const quantityItemsCart = amountItems
 
     const hasItemCart = quantityItemsCart > 0
 
