@@ -1,7 +1,13 @@
+import { useContext } from "react";
 import { CoffeeCard } from "../CoffeeCard";
 import { ButtonConfirm, CartListContainer, CartListPriceContainer, CoffeeCardList } from "./styles";
+import { CartContext } from "@/contexts/CartContext";
 
 export function CartList(){
+
+    const { coffes, amountItems } = useContext(CartContext)
+
+    const hasItems = amountItems > 0
 
     const priceTotalItems = 29.70;
     const priceTotalItemsString = String(priceTotalItems.toFixed(2)).replace('.', ',')
@@ -13,8 +19,11 @@ export function CartList(){
     return(
         <CartListContainer>
             <CoffeeCardList>
-                <CoffeeCard />
-                <CoffeeCard />
+                { hasItems ?
+                    coffes.map( coffe => <CoffeeCard coffe={coffe} />)
+                :   
+                    <p>Carrinho vazio!</p>
+                }
             </CoffeeCardList>
             <CartListPriceContainer>
                 <div>

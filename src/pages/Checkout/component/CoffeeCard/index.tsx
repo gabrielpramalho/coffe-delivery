@@ -1,9 +1,16 @@
-import imgExample from '@/assets/capuccino.svg'
 import { ButtonsActions } from '@/pages/Home/components/Coffe/styles'
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
 import { ButtonRemove, CoffeCardContainer, CoffeCardInfos } from './styles'
+import { CoffeType } from '@/pages/Home/components/Coffe'
 
-export function CoffeeCard(){
+interface CoffeCardProps{
+    coffe: CoffeType;
+}
+
+export function CoffeeCard({coffe}:CoffeCardProps){
+
+    const price = (coffe.amount ?? 1) * coffe.price
+    const priceString = String(price.toFixed(2)).replace('.', ',')
 
     function handleDecreaseQuantity(){
         console.log('-')
@@ -15,12 +22,12 @@ export function CoffeeCard(){
 
     return(
         <CoffeCardContainer>
-            <img src={imgExample} alt="" width={64} />
+            <img src={coffe.urlImage} alt="" width={64} />
             <CoffeCardInfos>
                 <div>
-                    <span>Latte</span>
+                    <span>{coffe.name}</span>
                     <strong>
-                        R$ 19,80
+                        R$ {priceString}
                     </strong>
                 </div>
                 <div>
@@ -28,7 +35,7 @@ export function CoffeeCard(){
                         <button type="button" onClick={handleDecreaseQuantity}>
                             <Minus size={14} weight="bold"/>
                         </button>
-                        <input  value="1" readOnly />
+                        <input  value={coffe.amount} readOnly />
                         <button type="button" onClick={handleIncreaseQuantity}>
                             <Plus size={14} weight="bold" />
                         </button>
