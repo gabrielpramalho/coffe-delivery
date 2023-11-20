@@ -1,5 +1,5 @@
 import { CoffeeCard } from "../CoffeeCard";
-import { ButtonConfirm, CartListContainer, CartListPriceContainer } from "./styles";
+import { ButtonConfirm, CartListContainer, CartListPriceContainer, CoffeeCardList } from "./styles";
 
 export function CartList(){
 
@@ -12,9 +12,10 @@ export function CartList(){
 
     return(
         <CartListContainer>
-            <div>
+            <CoffeeCardList>
                 <CoffeeCard />
-            </div>
+                <CoffeeCard />
+            </CoffeeCardList>
             <CartListPriceContainer>
                 <div>
                     <span>Total de itens</span>
