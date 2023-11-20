@@ -61,3 +61,9 @@ export const ButtonConfirm = styled.button`
         background-color: ${props => props.theme["yellow-700"]};
     }
 `
+
+export const CoffeeCardList = styled.div`
+    flex-direction: column;
+
+    gap: 1.5rem;
+`

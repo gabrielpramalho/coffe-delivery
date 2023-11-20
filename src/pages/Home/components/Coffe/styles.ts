@@ -165,7 +165,7 @@ export const ButtonBuy = styled.button`
 
     cursor: pointer;
 
-    padding: 0.35rem;
+    padding: 0.5rem;
     border-radius: 6px;
 
     &:hover{

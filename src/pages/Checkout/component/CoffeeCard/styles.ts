@@ -3,6 +3,12 @@ import styled from "styled-components";
 export const CoffeCardContainer = styled.div`
     gap: 1.25rem;
     flex: 1;
+
+    padding: 0.5rem 0.25rem;
+
+    padding-bottom: 1.5rem;
+
+    border-bottom: 1px solid ${props => props.theme["gray-400"]};
 `
 
 export const CoffeCardInfos = styled.div`
