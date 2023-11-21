@@ -1,7 +1,7 @@
 
 
-import { CoffeType } from "@/pages/Home/components/Coffe";
-import { addNewItemAction, decreaseQuantityAction, increaseQuantityAction, removeItemAction } from "@/reducers/cart/actions";
+import { AddressType, CoffeType } from "@/pages/Home/components/Coffe";
+import { addNewAddressAction, addNewItemAction, decreaseQuantityAction, increaseQuantityAction, removeItemAction } from "@/reducers/cart/actions";
 import { cartReducer } from "@/reducers/cart/reducer";
 import { ReactNode, createContext, useReducer } from "react";
 
@@ -15,6 +15,7 @@ interface CartContextType{
     priceProducts: number;
     priceTotal: number;
     createNewItem: (data: CoffeType) => void
+    addNewAddress: (data: AddressType) => void
     increaseQuantity: (id: string) => void
     decreaseQuantity: (id: string) => void
     removeItem: (id: string) => void
@@ -30,6 +31,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         {
             coffes: [],
             priceTotal: 0,
+            address: null
+            
         }
     );
 
@@ -62,6 +65,10 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         dispatch(removeItemAction(id))
     }
 
+    function addNewAddress(data: AddressType){
+        dispatch(addNewAddressAction(data))
+    }
+
     return (
         <CartContext.Provider 
             value={
@@ -71,7 +78,8 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
                     priceProducts,
                     priceShipping,
                     priceTotal,
-                    createNewItem, 
+                    createNewItem,
+                    addNewAddress,
                     increaseQuantity,
                     decreaseQuantity,
                     removeItem

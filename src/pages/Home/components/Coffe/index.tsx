@@ -3,6 +3,18 @@ import { CoffeInformation, CoffeeCard, Tags, ContainerPrice, ButtonsActions, But
 import { useContext, useState } from "react";
 import { CartContext } from "@/contexts/CartContext";
 
+export interface AddressType{
+    zipcode: string,
+    street: string,
+    city: string,
+    complement: string,
+    district: string,
+    number: string,
+    state: string,
+    paymentType: 'credit-card' | 'debit-card' | 'money'
+
+}
+
 export interface CoffeType{
     id: string;
     name: string;

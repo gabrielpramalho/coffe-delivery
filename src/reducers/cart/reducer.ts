@@ -1,10 +1,12 @@
 import { CoffeType } from "@/pages/Home/components/Coffe";
 import { ActionTypes } from "./actions";
 import { produce } from "immer";
+import { NewAddressFormData } from "@/pages/Checkout";
 
 export interface CartState{
     coffes: CoffeType[];
     priceTotal: number;
+    address?: NewAddressFormData | null;
 }
 
 export function cartReducer(state: CartState, action: any) {
@@ -55,6 +57,11 @@ export function cartReducer(state: CartState, action: any) {
                 draft.coffes = draft.coffes.filter((coffe, index) => index !== currentCoffeIndex);
               });
         }
+        case ActionTypes.ADD_NEW_ADDRESS:
+            return produce(state, (draft) =>{
+                draft.address = action.payload.newAddress
+            })
+
         default:
             return state;
     }
