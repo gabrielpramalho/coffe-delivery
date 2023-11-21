@@ -1,6 +1,7 @@
 
 
-import { AddressType, CoffeType } from "@/pages/Home/components/Coffe";
+import { NewAddressFormData } from "@/pages/Checkout";
+import { CoffeType } from "@/pages/Home/components/Coffe";
 import { addNewAddressAction, addNewItemAction, decreaseQuantityAction, increaseQuantityAction, removeItemAction } from "@/reducers/cart/actions";
 import { cartReducer } from "@/reducers/cart/reducer";
 import { ReactNode, createContext, useReducer } from "react";
@@ -9,13 +10,14 @@ import { ReactNode, createContext, useReducer } from "react";
 export const CartContext = createContext({} as CartContextType)
 
 interface CartContextType{
+    address?: NewAddressFormData | null;
     coffes: CoffeType[];
     amountItems: number;
     priceShipping: number;
     priceProducts: number;
     priceTotal: number;
     createNewItem: (data: CoffeType) => void
-    addNewAddress: (data: AddressType) => void
+    addNewAddress: (data: NewAddressFormData | null) => void
     increaseQuantity: (id: string) => void
     decreaseQuantity: (id: string) => void
     removeItem: (id: string) => void
@@ -36,7 +38,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         }
     );
 
-    const {coffes} = cart
+    const {coffes, address} = cart
 
     const amountItems = coffes.length
 
@@ -65,7 +67,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         dispatch(removeItemAction(id))
     }
 
-    function addNewAddress(data: AddressType){
+    function addNewAddress(data: NewAddressFormData | null){
         dispatch(addNewAddressAction(data))
     }
 
@@ -73,6 +75,7 @@ export function CartContextProvider({ children }: CartContextProviderProps) {
         <CartContext.Provider 
             value={
                 { 
+                    address,
                     coffes,
                     amountItems,
                     priceProducts,

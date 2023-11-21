@@ -46,7 +46,7 @@ export function removeItemAction(id: string){
     }
 }
 
-export function addNewAddressAction(newAddress: NewAddressFormData){
+export function addNewAddressAction(newAddress: NewAddressFormData | null){
     return{
         type: ActionTypes.ADD_NEW_ADDRESS,
         payload:{

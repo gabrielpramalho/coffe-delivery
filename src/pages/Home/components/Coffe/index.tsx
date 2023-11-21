@@ -11,7 +11,7 @@ export interface AddressType{
     district: string,
     number: string,
     state: string,
-    paymentType: 'credit-card' | 'debit-card' | 'money'
+    paymentType: 'credit-card' | 'debit-card' | 'money' 
 
 }
 
