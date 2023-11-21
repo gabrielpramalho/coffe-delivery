@@ -4,9 +4,13 @@ import { CartList } from "./component/CartList";
  
 export function Checkout(){
 
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault()
+
+    }
 
     return(
-        <form>
+        <form onSubmit={handleSubmit}>
             <CheckoutContainer>
                 <main>
                     <h3>Complete seu pedido</h3>

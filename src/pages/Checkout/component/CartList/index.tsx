@@ -5,22 +5,27 @@ import { CartContext } from "@/contexts/CartContext";
 
 export function CartList(){
 
-    const { coffes, amountItems } = useContext(CartContext)
+    const { coffes, amountItems, priceProducts, priceShipping, priceTotal } = useContext(CartContext)
 
     const hasItems = amountItems > 0
 
-    const priceTotalItems = 29.70;
-    const priceTotalItemsString = String(priceTotalItems.toFixed(2)).replace('.', ',')
+    const priceTotalItemsString = numberToString(priceProducts)
 
-    const priceShipping = 3.50
-    const priceShippingString = String(priceShipping.toFixed(2)).replace('.', ',')
+    const priceShippingString = numberToString(priceShipping)
+
+    const priceTotalString = numberToString(priceTotal)
+
+
+    function numberToString(num: number){
+        return String(num.toFixed(2)).replace('.', ',')
+    }
 
 
     return(
         <CartListContainer>
             <CoffeeCardList>
                 { hasItems ?
-                    coffes.map( coffe => <CoffeeCard coffe={coffe} />)
+                    coffes.map( coffe => <CoffeeCard key={coffe.id} coffe={coffe} />)
                 :   
                     <p>Carrinho vazio!</p>
                 }
@@ -40,7 +45,7 @@ export function CartList(){
                 </div>
                 <div>
                     <strong>Total</strong>
-                    <strong>R$ 33,20</strong>
+                    <strong>R$ {priceTotalString}</strong>
                 </div>
             </CartListPriceContainer>
             <div>

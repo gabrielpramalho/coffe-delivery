@@ -2,6 +2,8 @@ import { ButtonsActions } from '@/pages/Home/components/Coffe/styles'
 import { Minus, Plus, Trash } from '@phosphor-icons/react'
 import { ButtonRemove, CoffeCardContainer, CoffeCardInfos } from './styles'
 import { CoffeType } from '@/pages/Home/components/Coffe'
+import { useContext } from 'react';
+import { CartContext } from '@/contexts/CartContext';
 
 interface CoffeCardProps{
     coffe: CoffeType;
@@ -9,15 +11,21 @@ interface CoffeCardProps{
 
 export function CoffeeCard({coffe}:CoffeCardProps){
 
+    const { increaseQuantity, decreaseQuantity, removeItem } = useContext(CartContext)
+
     const price = (coffe.amount ?? 1) * coffe.price
     const priceString = String(price.toFixed(2)).replace('.', ',')
 
     function handleDecreaseQuantity(){
-        console.log('-')
+        decreaseQuantity(coffe.id)
     }
 
     function handleIncreaseQuantity(){
-        console.log('+')
+        increaseQuantity(coffe.id)
+    }
+
+    function handleRemoveItem(){
+        removeItem(coffe.id)
     }
 
     return(
@@ -40,7 +48,7 @@ export function CoffeeCard({coffe}:CoffeCardProps){
                             <Plus size={14} weight="bold" />
                         </button>
                     </ButtonsActions>
-                    <ButtonRemove type='button'>
+                    <ButtonRemove type='button' onClick={handleRemoveItem}>
                         <Trash size={16}/>
 
                         Remover

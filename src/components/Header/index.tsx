@@ -25,7 +25,7 @@ export function Header(){
                     <span>Bandeirantes, PR</span>
                 </div>
 
-                <Link to="/checkout" className='cart'>
+                <Link to={hasItemCart ? '/checkout' : '/'} className='cart'>
                     {hasItemCart && <span>{quantityItemsCart}</span> }
                     <ShoppingCart size={22} weight='fill' />
                 </Link>
